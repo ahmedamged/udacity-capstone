@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from models import db_drop_and_create_all, setup_db, Movie, Actor
 from auth.auth import AuthError, requires_auth
 
@@ -20,11 +20,9 @@ def create_app(test_config=None):
     return response
 
   @app.route('/')
-  def get_greeting():
-    excited = os.environ['EXCITED']
-    greeting = "Hello"
-    if excited == 'true': greeting = greeting + "!!!!!"
-    return greeting
+  @cross_origin()
+  def welcome_page():
+  	return render_template('pages/home.html'), 200
 
   @app.route('/coolkids')
   def be_cool():
