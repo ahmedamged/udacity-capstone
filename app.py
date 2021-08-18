@@ -41,6 +41,30 @@ def create_app(test_config=None):
         "actors": actors
     }), 200
 
+  @app.errorhandler(422)
+  def unprocessable(error):
+    return jsonify({
+        "success": False,
+        "error": 422,
+        "message": "unprocessable request"
+    }), 422
+
+  @app.errorhandler(404)
+  def not_found(error):
+    return jsonify({
+        "success": False,
+        "error": 404,
+        "message": "resource not found"
+    }), 404
+
+  @app.errorhandler(AuthError)
+  def not_authenticated(auth_error):
+    return jsonify({
+        "success": False,
+        "error": auth_error.status_code,
+        "message": auth_error.error
+    }), 401
+
   return app
 
 app = create_app()
