@@ -9,8 +9,6 @@ from flask_migrate import Migrate
 import logging
 from logging import Formatter, FileHandler
 from sqlalchemy import func
-from flask_wtf import Form
-from forms import *
 
 def create_app(test_config=None):
   # create and configure the app
@@ -29,7 +27,7 @@ def create_app(test_config=None):
   @app.route('/')
   @cross_origin()
   def welcome_page():
-  	return render_template('pages/home.html'), 200
+  	return render_template('index.html'), 200
 
   @app.route('/coolkids')
   def be_cool():
