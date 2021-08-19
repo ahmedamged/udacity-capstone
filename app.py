@@ -30,13 +30,24 @@ def create_app(test_config=None):
 
   @app.route('/actors')
   @requires_auth("get:actors")
-  def show_actors(payload):
+  def show_actors(jwt):
     actors_query = Actor.query.order_by(Actor.id).all()
     actors = [actor.short() for actor in actors_query]
 
     return jsonify({
         "success": True,
         "actors": actors
+    }), 200
+
+  @app.route('/movies')
+  @requires_auth("get:movies")
+  def show_movies(jwt):
+    movies_query = Movie.query.order_by(Movie.id).all()
+    movies = [movie.short() for movie in movies_query]
+
+    return jsonify({
+        "success": True,
+        "movies": movies
     }), 200
 
   @app.errorhandler(422)
