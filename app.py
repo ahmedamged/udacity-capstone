@@ -129,7 +129,7 @@ def create_app(test_config=None):
 
   @app.route('/actors/<int:id>', methods=['PATCH'])
   @requires_auth('edit:actors')
-  def edit_actor(jwt):
+  def edit_actor(jwt, id):
     body = request.get_json()
 
     name = body.get('name', None)
@@ -160,7 +160,7 @@ def create_app(test_config=None):
 
   @app.route('/movies/<int:id>', methods=['PATCH'])
   @requires_auth('edit:movies')
-  def edit_movie(jwt):
+  def edit_movie(jwt, id):
     body = request.get_json()
 
     title = body.get('title', None)
