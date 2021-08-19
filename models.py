@@ -61,10 +61,12 @@ class Actor(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     age = Column(Integer, nullable=False)
+    gender = Column(String, nullable=False)
 
-    def __init__(self, name, age):
+    def __init__(self, name, age, gender):
         self.name = name
         self.age = age
+        self.gender = gender
 
     def insert(self):
         db.session.add(self)
@@ -86,8 +88,9 @@ class Actor(db.Model):
     def long(self):
         return {
             "name": self.name,
-            "age": self.age
+            "age": self.age,
+            "gender": self.gender
         }
 
     def __repr__(self):
-        return "<Actor {} {} />".format(self.name, self.age)
+        return "<Actor {} {} {} />".format(self.name, self.age, self.gender)

@@ -50,6 +50,49 @@ def create_app(test_config=None):
         "movies": movies
     }), 200
 
+  @app.route('/actors', methods=['POST'])
+  @requires_auth('post:actors')
+  def add_actor(jwt):
+    body = request.get_json()
+    if not ('name' in body and 'age' in body and 'gender' in body):
+      abort(422)
+
+    name = body.get('name')
+    age = body.get('age')
+    gender = body.get('gender')
+
+    try:
+      actor=Actor(name=name, age=age, gender=gender)
+      actor.insert()
+      return jsonify({
+        "success": True,
+        "created": actor.id,
+        "actor": [actor.format()]
+      })
+    except:
+      abort(422)
+
+  @app.route('/movies', methods=['POST'])
+  @requires_auth('post:movies')
+  def add_movie(jwt):
+    body = request.get_json()
+    if not('title' in body and 'release_date' in body):
+      abort(422)
+
+    title = body.get('title')
+    release_date = body.get('release_date')
+
+    try:
+      movie=Movie(title=title, release_date=release_date)
+      movie.insert()
+      return jsonify({
+        "success": True,
+        "created": movie.id,
+        "movies": [movie.format()]
+      })
+    except:
+      abort(422)
+
   @app.errorhandler(422)
   def unprocessable(error):
     return jsonify({
