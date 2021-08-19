@@ -136,7 +136,7 @@ def create_app(test_config=None):
     age = body.get('age', None)
     gender = body.get('gender', None)
 
-    actor = Actor.query.get(id)
+    actor = Actor.query.filter(Actor.id == id).one_or_none()
 
     if actor is None:
       abort (404)
@@ -155,7 +155,7 @@ def create_app(test_config=None):
         "success": True,
         "actor": [actor.format()]
       })
-    except Exception:
+    except:
       abort(422)
 
   @app.route('/movies/<int:id>', methods=['PATCH'])
@@ -166,7 +166,7 @@ def create_app(test_config=None):
     title = body.get('title', None)
     release_date = body.get('release_date', None)
 
-    movie = Movie.query.get(id)
+    movie = Movie.query.filter(Movie.id == id).one_or_none()
 
     if movie is None:
       abort (404)
@@ -184,7 +184,7 @@ def create_app(test_config=None):
         "success": True,
         "movie": [movie.format()]
       })
-    except Exception:
+    except:
       abort(422)
 
   @app.errorhandler(422)
