@@ -54,16 +54,18 @@ def create_app(test_config=None):
   @requires_auth('post:actors')
   def add_actor(jwt):
     body = request.get_json()
-    if not ('name' in body and 'age' in body and 'gender' in body):
-      abort(422)
 
     name = body.get('name')
     age = body.get('age')
     gender = body.get('gender')
 
+    if name is None or age is None or gender is None:
+      abort(422)
+
     try:
-      actor=Actor(name=name, age=age, gender=gender)
+      actor = Actor(name=name, age=age, gender=gender)
       actor.insert()
+
       return jsonify({
         "success": True,
         "created": actor.id,
@@ -76,15 +78,17 @@ def create_app(test_config=None):
   @requires_auth('post:movies')
   def add_movie(jwt):
     body = request.get_json()
-    if not('title' in body and 'release_date' in body):
-      abort(422)
 
     title = body.get('title')
     release_date = body.get('release_date')
 
+    if title is None or release_date is None:
+      abort(422)
+
     try:
-      movie=Movie(title=title, release_date=release_date)
+      movie = Movie(title=title, release_date=release_date)
       movie.insert()
+
       return jsonify({
         "success": True,
         "created": movie.id,
@@ -121,6 +125,66 @@ def create_app(test_config=None):
         "deleted": id
       })
     except:
+      abort(422)
+
+  @app.route('/actors/<int:id>', methods=['PATCH'])
+  @requires_auth('edit:actors')
+  def edit_actor(jwt):
+    body = request.get_json()
+
+    name = body.get('name', None)
+    age = body.get('age', None)
+    gender = body.get('gender', None)
+
+    actor = Actor.query.get(id)
+
+    if actor is None:
+      abort (404)
+
+    if name is None or age is None or gender is None:
+      abort(422)
+
+    actor.name = name
+    actor.age = age
+    actor.gender = gender
+
+    try:
+      actor.update()
+
+      return jsonify({
+        "success": True,
+        "actor": [actor.format()]
+      })
+    except Exception:
+      abort(422)
+
+  @app.route('/movies/<int:id>', methods=['PATCH'])
+  @requires_auth('edit:movies')
+  def edit_movie(jwt):
+    body = request.get_json()
+
+    title = body.get('title', None)
+    release_date = body.get('release_date', None)
+
+    movie = Movie.query.get(id)
+
+    if movie is None:
+      abort (404)
+
+    if title is None or release_date is None:
+      abort(422)
+
+    movie.title = title
+    movie.release_date = release_date
+
+    try:
+      movie.update()
+
+      return jsonify({
+        "success": True,
+        "movie": [movie.format()]
+      })
+    except Exception:
       abort(422)
 
   @app.errorhandler(422)
