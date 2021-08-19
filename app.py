@@ -93,6 +93,36 @@ def create_app(test_config=None):
     except:
       abort(422)
 
+  @app.route('/movies/<int:id>', methods=['DELETE'])
+  @requires_auth('delete:movies')
+  def delete_movie(jwt, id):
+    movie = Movie.query.get(id)
+    if not movie:
+      abort(404)
+    try:
+      movie.delete()
+      return jsonify({
+        "success": True,
+        "deleted": id
+      })
+    except:
+      abort(422)
+
+  @app.route('/actors/<int:id>', methods=['DELETE'])
+  @requires_auth('delete:actors')
+  def delete_actor(jwt, id):
+    actor = Actor.query.get(id)
+    if not actor:
+      abort(404)
+    try:
+      actor.delete()
+      return jsonify({
+        "success": True,
+        "deleted": id
+      })
+    except:
+      abort(422)
+
   @app.errorhandler(422)
   def unprocessable(error):
     return jsonify({
