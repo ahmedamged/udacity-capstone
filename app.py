@@ -203,6 +203,14 @@ def create_app(test_config=None):
         "message": "resource not found"
     }), 404
 
+  @app.errorhandler(500)
+  def server_error(error):
+    return jsonify({
+        "success": False,
+        "error": 500,
+        "message": "internal server error"
+    }), 500
+
   @app.errorhandler(AuthError)
   def not_authenticated(auth_error):
     return jsonify({
