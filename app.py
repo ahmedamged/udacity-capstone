@@ -51,18 +51,20 @@ def create_app(test_config=None):
   def add_actor(jwt):
     body = request.get_json()
 
-    name = body.get('name')
-    age = body.get('age')
-    gender = body.get('gender')
+    name = body.get('name', None)
+    age = body.get('age', None)
+    gender = body.get('gender', None)
 
     try:
       actor = Actor(name=name, age=age, gender=gender)
       actor.insert()
+      selection = Actor.query.order_by(Actor.id).all()
+      total_actors = len(Actor.query.all())
 
       return jsonify({
         "success": True,
         "created": actor.id,
-        "actor": [actor.format()]
+        "total_actors": total_actors
       })
     except:
       abort(422)
@@ -78,11 +80,13 @@ def create_app(test_config=None):
     try:
       movie = Movie(title=title, release_date=release_date)
       movie.insert()
+      selection = Movie.query.order_by(Movie.id).all()
+      total_movies = len(Movie.query.all())
 
       return jsonify({
         "success": True,
         "created": movie.id,
-        "movies": [movie.format()]
+        "total_movies": total_movies
       })
     except:
       abort(422)
@@ -140,7 +144,7 @@ def create_app(test_config=None):
 
       return jsonify({
         "success": True,
-        "actor": [actor.format()]
+        "updated": actor.id
       })
     except:
       abort(422)
@@ -166,7 +170,7 @@ def create_app(test_config=None):
 
       return jsonify({
         "success": True,
-        "movie": [movie.format()]
+        "updated": movie.id
       })
     except:
       abort(422)
