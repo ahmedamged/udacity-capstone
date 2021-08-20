@@ -1,0 +1,744 @@
+{
+	"info": {
+		"_postman_id": "33c6a511-5d87-437a-bca5-898c92454669",
+		"name": "Capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Casting Assistant",
+			"item": [
+				{
+					"name": "Show actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bella\",\r\n    \"age\": 22,\r\n    \"gender\": \"female\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Saw\",\r\n    \"release_date\": 2012\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/10",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/8",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit actor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jeremy\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/6",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Saw\",\r\n    \"release_date\": 2012\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/5",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlhIcFhZN2ZaanMwNEVSeVpzY0loaiJ9.eyJpc3MiOiJodHRwczovL2FtZ2VkLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGY1NzZkZTgwYzk5ODAwNjgyMDQ0YmUiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYyOTQ5MDI0NiwiZXhwIjoxNjI5NDk3NDQ2LCJhenAiOiJDcmVxYnNsNjkzdmNoZ1psUGFoNVRmQ0ROOFh0R0xYQSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiXX0.HUjFxRbNlZXe5TzkVWUWQk6ViE7hu1R3UiudZvPh68CUjHtsy3IpoXRsis0GZrR2VKMRvm7RRvpJmqgyH9K-FdRIO5-IPqJgK0U7depiakIEMvKqvfqG9INkiJBaeCfm2VYYEPvajylVDuj8Czqn5SR0eQHODxBGFz5xd6WQLBHaVfGLbNnH5PqgxaaRiNOu85hPIO_kM-nO00-ba_-Oxs2-k4YWtMXZzz9wsvUkyHLSAV6qU8AEL0NZUCNTKG-FM3uNNpDAl-B3tbBrv2iBPhDajtqNW1rqNXiXnn3aXVy7k3eE0DI-9Lh7XUmnHNDHSrnyOd9U7awHkfn3A8VSCQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Casting Director",
+			"item": [
+				{
+					"name": "Show actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bella\",\r\n    \"age\": 22,\r\n    \"gender\": \"female\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Saw\",\r\n    \"release_date\": 2012\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/10",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/8",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit actor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jeremy\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/6",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Saw\",\r\n    \"release_date\": 2012\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/5",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlhIcFhZN2ZaanMwNEVSeVpzY0loaiJ9.eyJpc3MiOiJodHRwczovL2FtZ2VkLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGY4MTExNGM2MWZkNzAwNzdjZWEwYzciLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYyOTQ5MDM2NCwiZXhwIjoxNjI5NDk3NTY0LCJhenAiOiJDcmVxYnNsNjkzdmNoZ1psUGFoNVRmQ0ROOFh0R0xYQSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImVkaXQ6YWN0b3JzIiwiZWRpdDptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBvc3Q6YWN0b3JzIl19.MCmtUWJCs2War21ZdoRfzVUz6jJrPNZ4KDqjdlRLKxuRVZM5Kuj3eJrAlq_cNTkwT-QTRUnUOkZ4EGMrvMqFmm3R4nBMhoDoJnwtrnpQNSx2-lWIjvbbdPEIuDcWatiUiwUibo_DC72QY6V9px9mqRl4wUKk3qaTRu7T09C6F9m3dPeCSrG7lCjn2V1GYoxlqix5LDZEJB5fvfCHYKjmw6eIz9kEkCCtcAF379yDZtuyRf0r7u88cZTnKnj0Wgy47yErhE8CuGb2bbzBdXwkDeQAkiTiRtO8dRmVWQxGocaU-UbSjhe15lyz_IVa1_W3klZOAW927DfjXUSbR0-kEA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Executive Producer",
+			"item": [
+				{
+					"name": "Show actors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show movies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add actor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bella\",\r\n    \"age\": 22,\r\n    \"gender\": \"female\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Saw\",\r\n    \"release_date\": 2012\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete actor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/11",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/9",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit actor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Jeremy\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/actors/6",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Adrift\",\r\n    \"release_date\": 2016\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://final-capstone-fsnd.herokuapp.com/movies/5",
+							"protocol": "https",
+							"host": [
+								"final-capstone-fsnd",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlhIcFhZN2ZaanMwNEVSeVpzY0loaiJ9.eyJpc3MiOiJodHRwczovL2FtZ2VkLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MTFlZTUyMWQ3MjBiYzAwNjliOTEzOTYiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYyOTQ5MDMwOCwiZXhwIjoxNjI5NDk3NTA4LCJhenAiOiJDcmVxYnNsNjkzdmNoZ1psUGFoNVRmQ0ROOFh0R0xYQSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJlZGl0OmFjdG9ycyIsImVkaXQ6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.KqhTZ007hVoOpNVm9C-YDHNpcx99hEOLnkCTojk8C2ZGq_kAFXqFgSyXo8ztDMuUM4oXwZvx0ZCZmxMiSeyC6n2LtItoNE8kpUUHS-HS1uJvuz7bXyz7fMzA668eWwClKuq1kdWKa8dTUwjqt46jqiaV2Wq3wjQpHLkoPNyrFC7fxoN0wDwjKBYwWq4hg5jmr04uYB-dkXxZkeE4DgzMcveSYDlPdMkVve-b3avVfEF6NzpOptXmY5gTJfvGBCAPDrVENlXChtQVLLb_JGOAVlev32SYcSp73gJhmEfv2WeukIOxcJPolnoDz7kTVZEcLueS5iKlrYSXgHuI5lXbww",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
