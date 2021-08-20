@@ -24,10 +24,6 @@ def create_app(test_config=None):
   def welcome_page():
   	return render_template('index.html'), 200
 
-  @app.route('/coolkids')
-  def be_cool():
-    return "Be cool, man, be coooool! You're almost a FSND grad!"
-
   @app.route('/actors')
   @requires_auth("get:actors")
   def show_actors(jwt):
@@ -59,9 +55,6 @@ def create_app(test_config=None):
     age = body.get('age')
     gender = body.get('gender')
 
-    if name is None or age is None or gender is None:
-      abort(422)
-
     try:
       actor = Actor(name=name, age=age, gender=gender)
       actor.insert()
@@ -81,9 +74,6 @@ def create_app(test_config=None):
 
     title = body.get('title')
     release_date = body.get('release_date')
-
-    if title is None or release_date is None:
-      abort(422)
 
     try:
       movie = Movie(title=title, release_date=release_date)
@@ -141,9 +131,6 @@ def create_app(test_config=None):
     if actor is None:
       abort (404)
 
-    if name is None or age is None or gender is None:
-      abort(422)
-
     actor.name = name
     actor.age = age
     actor.gender = gender
@@ -170,9 +157,6 @@ def create_app(test_config=None):
 
     if movie is None:
       abort (404)
-
-    if title is None or release_date is None:
-      abort(422)
 
     movie.title = title
     movie.release_date = release_date
