@@ -1,3 +1,17 @@
+Motivation for the project
+
+*Coding in Python 3
+*Relational Database Architecture
+*Modeling Data Objects with SQLAlchemy
+*Internet Protocols and Communication
+*Developing a Flask API
+*Authentication and Access
+*Authentication with Auth0
+*Authentication in Flask
+*Role-Based Access Control (RBAC)
+*Testing Flask Applications
+*Deploying Applications
+
 Start with installing all the required packages to your machine
 
 ```bash
