@@ -99,8 +99,6 @@ Deletes the movie with id 2 from the database
   * Can't delete a movie
   * Can't edit an actor
   * Can't edit a movie
-    * Email / `black1by@hotmail.com`
-    * Password / `BSW<prGa=kVXq7Nw`
 
 
 * CASTING_DIRECTOR
@@ -112,8 +110,6 @@ Deletes the movie with id 2 from the database
   * Can't delete a movie
   * Can edit an actor
   * Can edit a movie
-    * Email / `ahmedamged@live.com`
-    * Password / `BSW<prGa=kVXq7Nw`
 
 
 * EXECUTIVE_PRODUCER
@@ -125,5 +121,3 @@ Deletes the movie with id 2 from the database
   * Can delete a movie
   * Can edit an actor
   * Can edit a movie
-    * Email / `hamada15121@hotmail.com`
-    * Password / `BSW<prGa=kVXq7Nw`
